@@ -1,12 +1,16 @@
 
-<!DOCTYPE html>
 <html>
 <head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"5c532d628b",applicationID:"2416009"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1173.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":1,"agent":"","transactionName":"ZgRWZ0tRXBJXBhINVl9OckZXU0YIWQtJAV1YFVtBF0ZbBEEWXBFKVBNrUFZUVz5QDAoB","applicationTime":117,"applicationID":"2416009","licenseKey":"5c532d628b","errorBeacon":"bam.nr-data.net"}</script>
+<head>
+
 <title>Class Clock</title>
+
 <!-- Import googleapi jquery, webfonts, and codehs canvas-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <script type="text/javascript" src="https://static.codehs.com/gulp/eadd18cc70971c40c67c7386257edc76d0b5953b/chs-js-lib/chs.js"></script>
+
+
 <style>
 /*Make codehs canvas have no border*/
 canvas {
@@ -16,158 +20,91 @@ canvas {
 body {
     background-color: black;
 }
-p {
-    color: red;
-    text-align:center;
-}
 </style>
-<!--Automatically reload the page every week -->
-<meta http-equiv="refresh" content="86400" >
+
+
 <!--Make the favicon a canadian flag because why not-->
-<link id="dynamic-favicon" rel="icon" href="https://codehs.com/uploads/6f72980b9dc8bd83d96cfb80574bf62a">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANUAAABqCAMAAAAcAuQRAAAAdVBMVEXVKx7////TGwf11dTSAADVKBrTGAD88/L++vrUJBX22tnPAADrrKnTEADUIhL99vXuurjqpaL3397XNyz55eTaUUzdZF7zzMronJnjhYLxxsTaVFHttLPcXVfZSUbXQD3fcW7lkY/gd3bfbWfifnvVKCXXPDc0aRwoAAAEkElEQVR4nO2c65ajIAyABQGlCmq1XnpT21nf/xFX7WVmrHjp9qzRY/6M0yGRb5CQQKymvSFYR/9LdPxOB9+SlWqlWqlWqpVqparEXCKVmb+DBZ1qb+0XSHVgh+VRHZnGjkujMk9Sk6fxMws2lUtKPeIujOrMSz1+XhaVzWpFZi+JyjzIWlEexs4syFQ2uWuSsYMFjcr8HhYz5XdNnpptDeZDFRTuo9see6oy78HkFsEMqcyMnDb1lXPmT1V+durPtiHJ5jhWKGaSZNvywiM/dEk1WMGFSBYPMQKOqoyRNOHHyPDpD13qB8grhDYwfgJHta28ORUWob+UKbFE9YnczpIK0U4jdJANeFQ72WFD7mZKlbAOGyyZKZVLOmwMjN/hUW06qTYzpTIKtb+ghTFTKidUuwsZOjOlQrnaXbB8mAmAVHYH1cCUBAyV95wxescT+DRhdPJBoQr8yyMYNzq8xQPdvPhdGQkUKpuI8HGdcoUFnj6ahKIzP4ZC5XON5PfrTDWxWHZvkRON+xCpNtb1GAUPR70vkwyN3MOho2odJvc0JKkaiMcGvBNEx6v1a3mebqwwIyI9JXY9P7LaQ5BbIq+MLu6RxS2flPXABXZySgVhGMZYobgcHsqxsKxzHop7t+tMN/Db/QW9eYj4Di3C/GxZAvOytYiBUEXP2SPFoxO0jl6NU7tvl6fKBbrPfBKLZzsWAaFyTm2uTlSuLWnvFK7mnS1a/sJPDhCq9r5TXP7X8/ZOVfFShNueTtxIuyak2rY6BSq9WOXZcezJ1ilHtmCokGjtIRVtz9hNhEoFwaHK1d0fJyIHRLX/GFXzRHxKKmOnCvjGCd81M+RJ48Cvz9wcfzUNT0qld228DBfyanhKqv2HqCJAVIFisR0vMg6AUDlJQbq31IcLJUXiQKA6WuxTTJVQZh0BUJme9VEqyzMBUJV3Lj53a1w0bE/oLfyPxRbNDacpPbuZf8izv1RGTrvHFH/ADVLyegA+8c6Z/udf74//tJmdeD9QL7qOFvuFFa1WJ9/lzP7FZ4is1eb0VCh+e+WilqKmBAAV2vtdx/Zqkb6qfhoCFQroO0+hoMpjERBUyLyMX7nIRV2nBYOqWpDHTS76uvTCo0IoomMml6QvmSJIKhSNWLlY0QkFiAqh61Asdu2xBIkKXYZ1Bl/6DIGicocNFustZgJFpTjheTHUW3gGiUp1xtgU2lmVAI2qsT1IucT1eyJY8t+4pO9NM0hU31WcVAqCi/CSHKQmD8klLDAR30dXvRWdgKgMcRsfQSx2yF29KltwUpxWPwLdzQ/MIuI2bqKnoA4QVUwI0XbXxNZ/xEKe5X3/Yup2ct1pZbueqnY4VEaWedHGaER3cTOFMo1N5GVZ92DBoWqX/FkHNEagU32Rl8OpBVBdRV/MN0eq8LvAbkFUi3wLGp3x+DdQ4VOlMu1vtFJBoDIKPvB1g1lR+dxfHlWZcvUmU/Oj2mhUG/Yaz5yo9JLqHTXYVBGl3fuZs6Ryy1x4/NdbgKfCGl4elS24GP3tFvCp/MJfHtWbslKtVCvVSrVSrVSV/AWPdU0jJ/E1jQAAAABJRU5ErkJggg==">
+
 </head>
+
+
+
+
 <body>
-<canvas width="1352px" height="650px" class="codehs-editor-canvas"></canvas>
+
+<canvas width="1500px" height="720px" class="codehs-editor-canvas"></canvas>
+
 <pre id="console"></pre>
+
+
 <!--Javascript Code for codehs canvas (makes the majority of the page)-->
 <script>
 WebFont.load({
     google: {
-      families: ['VT323','Mono']
+      families: ['VT323']
     }
   });
 window.onload = function() {
-//souds
-var bell = new Sound();
-bell.setFrequency(0); //640
-bell.setEffect('tremolo',0.2);
-bell.setVolume(8);
+
 //General Variables
-var autonum = 0;
-var clicknum = 0;
-var watcher = "0:0";
-var beansnext = "b";
-var beanslist = ['b','e','a','n','s'];
-var funnext = "f";
-var funlist = ['f','u','n'];
-var days = ['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','ASSEMBLY','DELAY'];
-var autoDay=true;
-var skipBell = true;
-var pastClass = "";
-var nxt = "";
-var nxtime = "";
 var grd = 8;
-var mover = 20;
 var pixely = true;
 var darkBool = true;
-var openDrawer = false;
-var funaudio = new Audio("https://codehs.com/uploads/dd4562d1d997539927f72fe7f590d084");
-//new Colors
-var dark0 = new Color(4,4,4); //darkest, for bg
-var dark1 = new Color(90,90,90); //lightest dark, for buttons
-var dark2 = new Color(16,16,16); //medium dark, for clock bg
-var light0 = new Color(240,240,240); //lightest light, for bg
-var light1 = new Color(150,180,180); //medium light, for clock ring
-var light2 = new Color(120,120,120); // darkest light, for buttons
-var bluey = new Color(68, 105, 254); //googal blue color
-var orangish = new Color(255, 111, 0); //coral orange color
-//timer
+var darkBlue = new Color(42, 103, 217);
+var darkRed = new Color(255, 35, 39);
+var darkOrange = new Color(255, 50, 0);
 var today = new Date();
+var day = today.getDay();
 var dayTimer = today.getDay();
-var backupDay = today.getDay();
 var hourTimer = today.getHours();
 var minuteTimer = today.getMinutes();
 var secondTimer = today.getSeconds();
 //Buttons
-var colorSwitch = new Text("DARK","25pt VT323");
-colorSwitch.setPosition(getWidth()/8-colorSwitch.getWidth()/2,getHeight()/10);
-colorSwitch.setColor(dark0);
-var gradeText = new Text("Grade: " + grd,"25pt VT323");
-gradeText.setColor(dark0);
-gradeText.setPosition(getWidth()/8*3-gradeText.getWidth()/2,getHeight()/10);
-var dropDown = new Circle(15);
-dropDown.setColor(light2);
-dropDown.setPosition(getWidth()/2,0);
+var colorSwitch = new Circle(10);
+colorSwitch.setColor(Color.white);
+colorSwitch.setPosition(14,14);
+var gradeSwitch = new Circle(14);
+gradeSwitch.setColor(Color.white);
+gradeSwitch.setPosition(getWidth()/2,16);
+var gradeText = new Text(grd,"20pt VT323");
+gradeText.setColor(Color.black);
+gradeText.setPosition(getWidth()/2-5,23);
+var fontSwitch = new Circle(10);
+fontSwitch.setColor(Color.white);
+fontSwitch.setPosition(getWidth()-14,14);
 //Shapes
 var background = new Rectangle(getWidth(),getHeight());
-background.setColor(dark0);
-var bigcirc=new Circle(156);
-bigcirc.setColor(bluey);
+background.setColor(Color.black);
+var biggestcirc = new Circle(160);
+biggestcirc.setColor(darkOrange);
+biggestcirc.setPosition(getWidth()/2,getHeight()/2);
+var bigcirc=new Circle(155);
+bigcirc.setColor(Color.orange);
 bigcirc.setPosition(getWidth()/2,getHeight()/2);
 var littlecirc=new Circle(150);
-littlecirc.setColor(dark2);
+littlecirc.setColor(Color.black);
 littlecirc.setPosition(getWidth()/2,getHeight()/2);
-var drawerBack = new Rectangle(getWidth(),getHeight()/5);
-drawerBack.setColor(light2);
-drawerBack.setPosition(0,0-drawerBack.getHeight());
-var watchBack = new Rectangle(getHeight()/2.5,getHeight()/5);
-watchBack.setPosition(getWidth()-watchBack.getWidth(),0-watchBack.getHeight());
-watchBack.setColor(light1);
-var gameBack = new Rectangle(getHeight()/2.5,getHeight()/5);
-gameBack.setPosition(0,0-gameBack.getHeight());
-gameBack.setColor(light1);
 //Text
 var timetext = new Text(hourTimer+":"+minuteTimer+":"+secondTimer,"30pt VT323");
-timetext.setPosition(getWidth()/2-timetext.getWidth()/2,getHeight()/2-50);
+timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
 timetext.setColor(Color.white);
 var classText = new Text("HOME","50pt VT323");
 classText.setColor(Color.white);
-classText.setPosition(getWidth()/2-(classText.getWidth()/2),getHeight()/2+53);
-var nextClassText = new Text(nxt,"20pt VT323");
-nextClassText.setColor(bluey);
-nextClassText.setPosition(getWidth()/2-(nextClassText.getWidth()/2),getHeight()/2+100);
-var nextClassTime = new Text(nxtime,"20pt VT323");
-nextClassTime.setColor(bluey);
-nextClassTime.setPosition(getWidth()/2-(nextClassTime.getWidth()/2),getHeight()/2+120);
-var textSwitch = new Text("PIXELY","25pt VT323");
-textSwitch.setColor(Color.black);
-textSwitch.setPosition(getWidth()/8*7-textSwitch.getWidth()/2,getHeight()/10);
-var dayText = new Text("AUTO","25pt VT323");
-dayText.setPosition(getWidth()/8*5-dayText.getWidth()/2,getHeight()/10);
-dayText.setColor(dark0);
+classText.setPosition(getWidth()/2-((classText.toString().length/2)*7),getHeight()/2+53);
 //Backlight shapes
-var backlightMiddle = new Rectangle(150,70);
-backlightMiddle.setColor(dark1);
-backlightMiddle.setPosition(getWidth()/2-backlightMiddle.getWidth()/2,getHeight()/2);
 var backlightLeft = new Circle(35);
-backlightLeft.setColor(dark1);
-backlightLeft.setPosition(backlightMiddle.getX(),getHeight()/2+35);
+backlightLeft.setColor(darkBlue);
+backlightLeft.setPosition(getWidth()/2-71,getHeight()/2+35);
+var backlightMiddle = new Rectangle(150,70);
+backlightMiddle.setColor(darkBlue);
+backlightMiddle.setPosition(getWidth()/2-75,getHeight()/2);
 var backlightRight = new Circle(35);
-backlightRight.setColor(dark1);
-backlightRight.setPosition(backlightMiddle.getX()+backlightMiddle.getWidth(),getHeight()/2+35);
-var watchStart = new Text("Start", "15pt VT323");
-watchStart.setPosition(watchBack.getX()+watchBack.getWidth()/4-watchStart.getWidth()/2,225);
-watchStart.setColor(Color.black);
-var watchStop = new Text("Stop", "15pt VT323");
-watchStop.setPosition(watchBack.getX()+watchBack.getWidth()/4*2-watchStop.getWidth()/2,225);
-watchStop.setColor(Color.black);
-var watchClear = new Text("Clear", "15pt VT323");
-watchClear.setPosition(watchBack.getX()+watchBack.getWidth()/4*3-watchClear.getWidth()/2,225);
-watchClear.setColor(Color.black);
-var  watchText = new Text(watcher,"30pt VT323");
-watchText.setPosition(watchBack.getX()+watchBack.getWidth()/2-watchText.getWidth()/2,180);
-watchText.setColor(Color.black);
-var clicker = new Text("Click", "30pt VT323");
-clicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-clicker.getWidth()/2,200);
-clicker.setColor(Color.black);
-var autoClicker = new Text("Buy Auto","15pt VT323");
-autoClicker.setColor(Color.black);
-autoClicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-autoClicker.getWidth()/2,230);
-var clickText = new Text(clicknum,"15pt VT323");
-clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
-clickText.setColor(Color.black);
+backlightRight.setColor(darkBlue);
+backlightRight.setPosition(getWidth()/2+71,getHeight()/2+35);
 //Add shapes
 add(background);
-add(watchBack);
-add(watchStart);
-add(watchStop);
-add(watchClear);
-add(watchText);
-add(gameBack);
-add(clicker);
-add(autoClicker);
-add(clickText);
-add(drawerBack);
+add(biggestcirc);
 add(bigcirc);
 add(littlecirc);
 add(timetext);
@@ -176,121 +113,97 @@ add(backlightMiddle);
 add(backlightRight);
 add(classText);
 add(colorSwitch);
+add(gradeSwitch);
 add(gradeText);
-add(dropDown);
-add(textSwitch);
-add(nextClassText);
-add(nextClassTime);
-add(dayText);
+add(fontSwitch);
 //Start a timer to listen for clicks and refresh the clock
 setTimer(start,10);
-setTimer(clearBell,50);
-setTimer(autoClick,5000);
 mouseClickMethod(click);
-keyDownMethod(beans);
-
-var times = [
-    //8th
-    [[0,0,24,60,"HOME"],//Sun
-    [[0,0,8,25,"HOME"],[8,25,9,25,"HEART"],[9,30,10,55,"2nd"],[11,0,12,25,"4th"],[12,30,13,5,"LUNCH"],[13,10,14,35,"6th"],[14,40,15,25,"ACCESS"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//mon
-    [[0,0,8,25,"HOME"],[8,25,9,50,"1st"],[9,55,10,11,20,"3rd"],[11,25,12,7,"5th"],[12,12,12,42,"LUNCH"],[12,47,13,30,"5th"],[13,35,14,15,0,"7th"],[15,5,15,25,"ACCESS"][15,25,24,60,"HOME"],[1,1,1,1,""]],//tue
-    [[0,0,8,25,"HOME"],[8,25,9,50,"2nd"],[9,55,10,11,20,"4th"],[11,25,12,7,"6th"],[12,12,12,42,"LUNCH"],[12,47,13,30,"6th"],[13,35,14,25,"ACCESS"],[14,30,15,25,"ACH/HOME"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//wed
-    [[0,0,8,25,"HOME"],[8,25,9,50,"1st"],[9,55,10,11,20,"3rd"],[11,25,12,7,"5th"],[12,12,12,42,"LUNCH"],[12,47,13,30,"5th"],[13,35,14,15,0,"7th"],[15,5,15,25,"ACCESS"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//thu
-    [[0,0,8,25,"HOME"],[8,25,9,15,"1st"],[9,20,10,10,"2nd"],[10,15,11,5,"3rd"],[11,10,12,0,"4th"],[12,5,12,40,"LUNCH"],[12,45,13,35,"5th"],[13,40,14,30,"6th"],[14,35,15,25,"7th"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//fri
-    [[0,0,24,60,"HOME"]]],//sat
-    //7/6th
-    [
-        [[0,0,24,60,"HOME"]],//sun
-        [[0,0,8,25,"HOME"],[8,25,9,25,"HEART"],[9,30,10,55,"2nd"],[11,0,11,35,"LUNCH"],[11,40,12,13,5,"4th"],[13,10,14,35,"6th"],[14,40,15,25,"ACCESS"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//mon
-        [[0,0,8,25,"HOME"],[8,25,9,50,"1st"],[9,55,10,11,20,"3rd"],[11,25,12,0,"LUNCH"],[12,5,13,30,"5th"],[13,35,14,15,0,"7th"],[15,5,15,25,"ACCESS"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//tue
-        [[0,0,8,25,"HOME"],[8,25,9,50,"2nd"],[9,55,10,11,20,"4th"],[11,25,12,0,"LUNCH"],[12,5,13,20,"6th"],[13,35,14,25,"ACCESS"],[14,30,15,25,"ACH/HOME"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//wed
-        [[0,0,8,25,"HOME"],[8,25,9,50,"1st"],[9,55,10,11,20,"3rd"],[11,25,12,0,"LUNCH"],[12,5,13,30,"5th"],[13,35,14,15,0,"7th"],[15,5,15,25,"ACCESS"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//thu
-        [[0,0,8,25,"HOME"],[8,25,9,15,"1st"],[9,20,10,10,"2nd"],[10,15,11,5,"3rd"],[11,10,11,45,"LUNCH"],[11,50,12,40,"4th"],[12,45,13,35,"5th"],[13,40,14,30,"6th"],[14,35,15,25,"7th"],[15,25,24,60,"HOME"],[1,1,1,1,""]],//fri
-        [[0,0,24,60,"HOME"]]//sat
-    ]
-];
 function start() {
     //refresh clock
     today = new Date();
-    if (autoDay) {
-        dayTimer = today.getDay();
-    }
-    backupDay = today.getDay();
+    dayTimer = today.getDay();
     hourTimer = today.getHours();
     minuteTimer = today.getMinutes();
     secondTimer = today.getSeconds();
     //find class
-    checker=0;
-    notDone = true;
-    if (grd==8) {
-        grdidx=0;
-    } else {
-        grdidx=1;
-    }
-    while (notDone) {
-        if (times[grdidx][dayTimer][checker]==undefined) {
-            notDone=false;
-            classText.setText("PASSING");
-        } else if (dayTimer==0 || dayTimer==6) {
-            notDone=false;
-            classText.setText(times[grdidx][dayTimer][checker][4]);
-        } else if (hourTimer<8 || hourTimer==8 && minuteTimer<13 || hourTimer==15 && minuteTimer>=25 || hourTimer>15) {
+    //if weekend
+    if (dayTimer==0||dayTimer==6){
+        classText.setText("HOME");
+    } else if (dayTimer==1) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            //if before or after school
             classText.setText("HOME");
-            notDone = false;
-        } else if (hourTimer==8 && minuteTimer>=13 && minuteTimer<25) {
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<25) {
+            classText.setText("HEART");
+        } else if (hourTimer==9 && minuteTimer>=30 ||hourTimer==10 && minuteTimer<55) {
+            classText.setText("2nd");
+        } else if (hourTimer==11||hourTimer==12 && minuteTimer<25) {
+            classText.setText("4th");
+        } else if (hourTimer==12 && minuteTimer>=30 ||hourTimer==13 && minuteTimer<5) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==13 && minuteTimer>=10 ||hourTimer==14 && minuteTimer<25) {
+            classText.setText("6th");
+        } else if (hourTimer==14 && minuteTimer>=40 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("ACCESS");
+        } else {
             classText.setText("PASSING");
-            notDone=false;
-        } else if (times[grdidx][dayTimer][checker].length==5) {
-            if (times[grdidx][dayTimer][checker][0]==times[grdidx][dayTimer][checker][2]) {
-                if (times[grdidx][dayTimer][checker][0]==hourTimer && times[grdidx][dayTimer][checker][1] <= minuteTimer && times[grdidx][dayTimer][checker][3] > minuteTimer) {
-                    notDone=false;
-                    classText.setText(times[grdidx][dayTimer][checker][4]);
-                } else {
-                    checker++;
-                }
-            } else {
-                if (times[grdidx][dayTimer][checker][0]==hourTimer && times[grdidx][dayTimer][checker][1] <= minuteTimer || times[grdidx][dayTimer][checker][2]==hourTimer && times[grdidx][dayTimer][checker][3] > minuteTimer) {
-                    notDone=false;
-                    classText.setText(times[grdidx][dayTimer][checker][4]);
-                } else {
-                    checker++;
-                }
-            }
-        } else if (times[grdidx][dayTimer][checker].length==6) {
-            if (times[grdidx][dayTimer][checker][0]==hourTimer && times[grdidx][dayTimer][checker][1] <= minuteTimer || times[grdidx][dayTimer][checker][2]==hourTimer || times[grdidx][dayTimer][checker][3]==hourTimer && times[grdidx][dayTimer][checker][4] > minuteTimer) {
-                notDone=false;
-                classText.setText(times[grdidx][dayTimer][checker][5]);
-            } else {
-                checker++;
-            }
         }
-    }
-    if (times[grdidx][dayTimer][checker]!=undefined) {
-        if (dayTimer==0 || dayTimer==6) {
-            nxt = "";
-        }else if (hourTimer<8 || hourTimer==8 && minuteTimer<13 || hourTimer==15 && minuteTimer>=25 || hourTimer>15) {
-            nxt = "";
-            nxtime = "";
+    } else if (dayTimer==2||dayTimer==4) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<50) {
+            classText.setText("1st");
+        } else if (hourTimer==9 && minuteTimer>=55 ||hourTimer==10 ||hourTimer==11 && minuteTimer<20) {
+            classText.setText("3rd");
+        } else if (hourTimer==11 && minuteTimer>=25 ||hourTimer==12 && minuteTimer<7 ||hourTimer==12 && minuteTimer>=47 ||hourTimer==13 && minuteTimer<30) {
+            classText.setText("5th");
+        } else if (hourTimer==12 && minuteTimer>=12 ||hourTimer==12 && minuteTimer<42) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==13 && minuteTimer>=35) {
+            classText.setText("7th");
+        } else if (hourTimer==15 && minuteTimer>=5 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("ACCESS");
         } else {
-            if (times[grdidx][dayTimer][checker+1].length==5) {
-                nxt = (times[grdidx][dayTimer][checker+1][4]);
-            } else {
-                nxt = (times[grdidx][dayTimer][checker+1][5]);
-            }
-            if (times[grdidx][dayTimer][checker+1][0]>12) {
-                nxtime = ("At " + (times[grdidx][dayTimer][checker+1][0]-12)+":"+times[grdidx][dayTimer][checker+1][1]);
-            } else {
-                nxtime = ("At " + times[grdidx][dayTimer][checker+1][0]+":"+times[grdidx][dayTimer][checker+1][1]);
-            }
+            classText.setText("PASSING");
         }
-    }
-    //Play bell
-    if (pastClass!=classText.getText()) {
-        pastClass=classText.getText();
-        if (skipBell) {
-            skipBell = false;
+    } else if (dayTimer==3) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==14 && minuteTimer>25||hourTimer>14) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<50) {
+            classText.setText("2nd");
+        } else if (hourTimer==9 && minuteTimer>=55 ||hourTimer==10 ||hourTimer==11 && minuteTimer<20) {
+            classText.setText("4tb");
+        } else if (hourTimer==11 && minuteTimer>=25 ||hourTimer==12 && minuteTimer<7 ||hourTimer==12 && hourTimer>=47 ||hourTimer==13 && minuteTimer<30) {
+            classText.setText("6th");
+        } else if (hourTimer==13 && minuteTimer>=35 ||hourTimer==14 && minuteTimer<25) {
+            classText.setText("ACCESS");
+        } else if (hourTimer==14 && minuteTimer>=25 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("HOME/ACHV");
         } else {
-            bell.playFor(2.5);
+            classText.setText("PASSING");
+        }
+    } else if (dayTimer==5) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<15) {
+            classText.setText("1st");
+        } else if (hourTimer==9 && minuteTimer>=20 ||hourTimer==10 && minuteTimer<10) {
+            classText.setText("2nd");
+        } else if (hourTimer==10 && minuteTimer>=15 ||hourTimer==11 && minuteTimer<5) {
+            classText.setText("3rd");
+        } else if (hourTimer==11 && minuteTimer>=10) {
+            classText.setText("4th");
+        } else if (hourTimer==12 && minuteTimer>=5 ||hourTimer==12 && minuteTimer<40) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==12 && minuteTimer>=45 ||hourTimer==13 && minuteTimer<35) {
+            classText.setText("5th");
+        } else if (hourTimer==13 && minuteTimer>=40 ||hourTimer==14 && minuteTimer<30) {
+            classText.setText("6th");
+        } else if (hourTimer==14 && minuteTimer>=35 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("7th");
+        } else {
+            classText.setText("PASSING");
         }
     }
     //Timer Cosmetics
@@ -308,386 +221,95 @@ function start() {
     }
     timetext.setText(hourTimer+":"+minuteTimer+":"+secondTimer);
     if (pixely) {
-        classText.setPosition(getWidth()/2-(classText.getWidth()/2),getHeight()/2+53);
+        classText.setPosition(getWidth()/2-((classText.toString().length/2)*7),getHeight()/2+53);
     } else {
-        classText.setPosition(getWidth()/2-(classText.getWidth()/2),getHeight()/2+50);
+        classText.setPosition(getWidth()/2-((classText.toString().length/2)*8.5),getHeight()/2+53);
     }
-    nextClassText.setPosition(getWidth()/2-(nextClassText.getWidth()/2),getHeight()/2+100);
-    nextClassText.setText(nxt);
-    nextClassTime.setPosition(getWidth()/2-(nextClassTime.getWidth()/2),getHeight()/2+120);
-    nextClassTime.setText(nxtime);
 }
 
 function click(e) {
-    if (Randomizer.nextInt(1,1000)==15) {
-        watchText.setText("wenis");
-    }
     //this function listens for clicks and sees if a button was clicked on
-    mover=20;
-    if (openDrawer==false && e.getX()>=getWidth()/2-15 && e.getX()<=getWidth()/2+15 && e.getY()<=15) {
-        setTimer(moveDrawer,1);
-    } else if (openDrawer && e.getX()>=getWidth()/2-15 && e.getX()<=getWidth()/2+15 && e.getY()<=drawerBack.getHeight()+15 && e.getY()>=drawerBack.getHeight()) {
-        setTimer(moveDrawer,1);
-    }
     //see if the button for dark mode was clicked
-    if (openDrawer) {
-        if (e.getX() <= colorSwitch.getX()+colorSwitch.getWidth() && e.getX() >= colorSwitch.getX() && e.getY() >=colorSwitch.getY()-colorSwitch.getHeight() && e.getY() <= colorSwitch.getY()) {
-            if (darkBool) {
-                darkBool=false;
-            } else {
-                darkBool=true;
-            } //see if the button for a font change was clicked
-        } else if (e.getX() <= textSwitch.getX()+textSwitch.getWidth() && e.getX() >= textSwitch.getX() && e.getY() >=textSwitch.getY()-textSwitch.getHeight() && e.getY() <= textSwitch.getY()) {
-            if (pixely) {
-                pixely=false;
-                remove(colorSwitch);
-                if (darkBool) {
-                    colorSwitch = new Text("DARK","20pt Mono");
-                } else {
-                    colorSwitch = new Text("LIGHT", "20pt Mono");
-                }
-                colorSwitch.setPosition(getWidth()/8-colorSwitch.getWidth()/2,getHeight()/10);
-                add(colorSwitch);
-                remove(timetext);
-                timetext = new Text("","20pt Mono");
-                timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
-                add(timetext);
-                remove(classText);
-                classText = new Text("","35pt Mono");
-                classText.setPosition(getWidth()/2-64,getHeight()/2-52);
-                add(classText);
-                remove(gradeText);
-                gradeText = new Text("Grade: " + grd,"20pt Mono");
-                gradeText.setPosition(getWidth()/8*3-gradeText.getWidth()/2,getHeight()/10);
-                add(gradeText);
-                remove(nextClassText);
-                nextClassText = new Text("5th","20pt Mono");
-                nextClassText.setPosition(getWidth()/2-5,23);
-                nextClassText.setColor(Color.blue);
-                add(nextClassText);
-                remove(nextClassTime);
-                nextClassTime = new Text("At 9:00","20pt Mono");
-                nextClassTime.setPosition(getWidth()/2-5,23);
-                nextClassTime.setColor(Color.blue);
-                add(nextClassTime);
-                remove(textSwitch);
-                textSwitch = new Text("MONO","20pt Mono");
-                textSwitch.setPosition(getWidth()/8*7-textSwitch.getWidth()/2,getHeight()/10);
-                textSwitch.setColor(Color.white);
-                add(textSwitch);
-                remove(dayText);
-                if (autoDay) {
-                    dayText = new Text("AUTO","20pt Mono");
-                } else {
-                    dayText = new Text(days[dayTimer-1],"20pt Mono");
-                }
-                dayText.setColor(dark0);
-                add(dayText);
-                dayText.setPosition(getWidth()/8*5-dayText.getWidth()/2,getHeight()/10);
-                remove(autoClicker);
-                autoClicker = new Text("Buy Auto","15pt Mono");
-                autoClicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-autoClicker.getWidth()/2,230);
-                add(autoClicker);
-                remove(clicker);
-                clicker = new Text("Click","30pt Mono");
-                clicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-clicker.getWidth()/2,200);
-                add(clicker);
-                remove(clickText);
-                clickText = new Text(clicknum,"15pt Mono");
-                clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
-                add(clickText);
-                remove(watchText);
-                watchText = new Text(watcher,"30pt Mono");
-                watchText.setPosition(watchBack.getX()+watchBack.getWidth()/2-watchText.getWidth()/2,180);
-                add(watchText);
-                remove(watchStart);
-                watchStart = new Text("Start","15pt Mono");
-                watchStart.setPosition(watchBack.getX()+watchBack.getWidth()/4-watchStart.getWidth()/2,225);
-                add(watchStart);
-                remove(watchStop);
-                watchStop = new Text("Stop","15pt Mono");
-                watchStop.setPosition(watchBack.getX()+watchBack.getWidth()/4*2-watchStop.getWidth()/2,225);
-                add(watchStop);
-                remove(watchClear);
-                watchClear = new Text("Clear","15pt Mono");
-                watchClear.setPosition(watchBack.getX()+watchBack.getWidth()/4*3-watchClear.getWidth()/2,225);
-                add(watchClear);
-            } else {
-                pixely=true;
-                remove(colorSwitch);
-                if (darkBool) {
-                    colorSwitch = new Text("DARK","25pt VT323");
-                } else {
-                    colorSwitch = new Text("LIGHT", "25pt VT323");
-                }
-                colorSwitch.setPosition(getWidth()/8-colorSwitch.getWidth()/2,getHeight()/10);
-                add(colorSwitch);
-                remove(timetext);
-                timetext = new Text("","30pt VT323");
-                timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
-                add(timetext);
-                remove(classText);
-                classText = new Text("","50pt VT323");
-                classText.setPosition(getWidth()/2-64,getHeight()/2-50);
-                add(classText);
-                remove(gradeText);
-                gradeText = new Text("Grade: " + grd,"25pt VT323");
-                gradeText.setPosition(getWidth()/8*3-gradeText.getWidth()/2,getHeight()/10);
-                add(gradeText);
-                remove(nextClassText);
-                nextClassText = new Text("5th","20pt VT323");
-                nextClassText.setPosition(getWidth()/2-5,23);
-                nextClassText.setColor(Color.blue);
-                add(nextClassText);
-                remove(nextClassTime);
-                nextClassTime = new Text("At 9:00","20pt VT323");
-                nextClassTime.setPosition(getWidth()/2-5,23);
-                nextClassTime.setColor(Color.blue);
-                add(nextClassTime);
-                remove(textSwitch);
-                textSwitch = new Text("PIXELY","25pt VT323");
-                textSwitch.setPosition(getWidth()/8*7-textSwitch.getWidth()/2,getHeight()/10);
-                add(textSwitch);
-                remove(dayText);
-                if (autoDay) {
-                    dayText = new Text("AUTO","25pt VT323");
-                } else {
-                    dayText = new Text(days[dayTimer-1],"25pt VT323");
-                }
-                dayText.setColor(dark0);
-                add(dayText);
-                dayText.setPosition(getWidth()/8*5-dayText.getWidth()/2,getHeight()/10);
-                remove(autoClicker);
-                autoClicker = new Text("Buy Auto","15pt VT323");
-                autoClicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-autoClicker.getWidth()/2,230);
-                add(autoClicker);
-                remove(clicker);
-                clicker = new Text("Click","30pt VT323");
-                clicker.setPosition(gameBack.getX()+gameBack.getWidth()/2-clicker.getWidth()/2,200);
-                add(clicker);
-                remove(clickText);
-                clickText = new Text(clicknum,"15pt VT323");
-                clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
-                add(clickText);
-                remove(watchText);
-                watchText = new Text(watcher,"30pt VT323");
-                watchText.setPosition(watchBack.getX()+watchBack.getWidth()/2-watchText.getWidth()/2,180);
-                add(watchText);
-                remove(watchStart);
-                watchStart = new Text("Start","15pt VT323");
-                watchStart.setPosition(watchBack.getX()+watchBack.getWidth()/4-watchStart.getWidth()/2,225);
-                add(watchStart);
-                remove(watchStop);
-                watchStop = new Text("Stop","15pt VT323");
-                watchStop.setPosition(watchBack.getX()+watchBack.getWidth()/4*2-watchStop.getWidth()/2,225);
-                add(watchStop);
-                remove(watchClear);
-                watchClear = new Text("Clear","15pt VT323");
-                watchClear.setPosition(watchBack.getX()+watchBack.getWidth()/4*3-watchClear.getWidth()/2,225);
-                add(watchClear);
-            } // see if the button to change grade schedules was clicked
-            textSwitch.setPosition(getWidth()/8*7-textSwitch.getWidth()/2,getHeight()/10);
-        } else if (e.getX() <= gradeText.getX()+gradeText.getWidth() && e.getX() >= gradeText.getX() && e.getY() >=gradeText.getY()-gradeText.getHeight() && e.getY() <= gradeText.getY()) {
-            if (grd==8) {
-                skipBell=true;
-                grd=6;
-            } else if (grd==7) {
-                skipBell=true;
-                grd=8;
-            } else if (grd==6) {
-                grd=7;
-            }
-            gradeText.setText("Grade: " + grd);
-        } else if (e.getX() <= dayText.getX()+dayText.getWidth() && e.getX() >= dayText.getX() && e.getY() >=dayText.getY()-dayText.getHeight() && e.getY() <= dayText.getY()) {
-            if (autoDay) {
-                autoDay = false;
-                dayTimer = 1;
-            } else {
-                if (dayTimer==5) {
-                    autoDay=true;
-                } else {
-                    dayTimer++;
-                }
-            }
-            if (autoDay) {
-                dayText.setText("AUTO");
-            } else {
-                dayText.setText(days[dayTimer-1]);
-            }
-            skipBell=true;
-            dayText.setPosition(getWidth()/8*5-dayText.getWidth()/2,getHeight()/10);
-        } else if (e.getX() <= watchStart.getX()+watchStart.getWidth() && e.getX() >= watchStart.getX() && e.getY() >=watchStart.getY()-watchStart.getHeight() && e.getY() <= watchStart.getY()) {
-            setTimer(watchTimer,1000);
-        } else if (e.getX() <= watchStop.getX()+watchStop.getWidth() && e.getX() >= watchStop.getX() && e.getY() >=watchStop.getY()-watchStop.getHeight() && e.getY() <= watchStop.getY()) {
-            stopTimer(watchTimer);
-        } else if (e.getX() <= watchClear.getX()+watchClear.getWidth() && e.getX() >= watchClear.getX() && e.getY() >=watchClear.getY()-watchClear.getHeight() && e.getY() <= watchClear.getY()) {
-            watcher = "0:0";
-            watchText.setText(watcher);
-        } else if (e.getX() <= clicker.getX()+clicker.getWidth() && e.getX() >= clicker.getX() && e.getY() >=clicker.getY()-clicker.getHeight() && e.getY() <= clicker.getY()) {
-            clicknum++;
-            clickText.setText(clicknum);
-            clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
-        } else if (e.getX() <= autoClicker.getX()+autoClicker.getWidth() && e.getX() >= autoClicker.getX() && e.getY() >=autoClicker.getY()-autoClicker.getHeight() && e.getY() <= autoClicker.getY()) {
-            if (clicknum>=100) {
-                autonum++;
-                clicknum-=100;
-                clickText.setText(clicknum);
-                clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
-            }
-        }
-        
-        //change the colors of things if the dark mode boolean changed
+    if (e.getX() < 25 && e.getY() < 25) {
         if (darkBool) {
-            var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            link.type = 'image/x-icon';
-            link.rel = 'shortcut icon';
-            link.href = 'https://codehs.com/uploads/6f72980b9dc8bd83d96cfb80574bf62a';
-            document.getElementsByTagName('head')[0].appendChild(link);
-            background.setColor(dark0);
-            bigcirc.setColor(bluey);
-            littlecirc.setColor(dark2);
-            timetext.setColor(Color.white);
-            classText.setColor(Color.white);
-            colorSwitch.setColor(dark0);
-            colorSwitch.setText("DARK");
-            gradeText.setColor(dark0);
-            backlightLeft.setColor(dark1);
-            backlightMiddle.setColor(dark1);
-            backlightRight.setColor(dark1);
-            textSwitch.setColor(dark0);
-            dayText.setColor(dark0);
-            nextClassText.setColor(bluey);
-            nextClassTime.setColor(bluey);
-            watchText.setColor(Color.black);
-            watchStart.setColor(Color.black);
-            watchStop.setColor(Color.black);
-            watchClear.setColor(Color.black);
-            autoClicker.setColor(Color.black);
-            clicker.setColor(Color.black);
-            clickText.setColor(Color.black);
-            document.body.style.background = 'black';
+            darkBool=false;
         } else {
-            var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            link.type = 'image/x-icon';
-            link.rel = 'shortcut icon';
-            link.href = 'https://codehs.com/uploads/1d68467d63a8855e8416cbcfa517af5a';
-            document.getElementsByTagName('head')[0].appendChild(link);
-            background.setColor(light0);
-            bigcirc.setColor(light1);
-            littlecirc.setColor(Color.white);
-            timetext.setColor(Color.black);
-            classText.setColor(Color.white);
-            gradeText.setColor(light0);
-            colorSwitch.setColor(light0);
-            colorSwitch.setText("LIGHT")
-            backlightLeft.setColor(orangish);
-            backlightMiddle.setColor(orangish);
-            backlightRight.setColor(orangish);
-            textSwitch.setColor(light0);
-            dayText.setColor(light0);
-            nextClassText.setColor(Color.blue);
-            nextClassTime.setColor(Color.blue);
-            watchText.setColor(light0);
-            watchStart.setColor(light0);
-            watchStop.setColor(light0);
-            watchClear.setColor(light0);
-            autoClicker.setColor(light0);
-            clicker.setColor(light0);
-            clickText.setColor(light0);
-            document.body.style.background = 'white';
-        }
-    }
-    remove(dropDown);
-    add(dropDown);
-}
-function beans(e) {
-    if (e.key==beansnext) {
-        if (beansnext=="s") {
-            $('body').css('background-image', 'url(https://images.immediate.co.uk/production/volatile/sites/4/2018/08/GettyImages-149069817-15d7368.jpg?quality=45&resize=960,413)');
-            var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            link.type = 'image/x-icon';
-            link.rel = 'shortcut icon';
-            link.href = 'https://codehs.com/uploads/37815cf8f6825227a2a3a64982e357f4';
-            document.getElementsByTagName('head')[0].appendChild(link);
-            remove(background);
+            darkBool=true;
+        } //see if the button for a font change was clicked
+    } else if (e.getX() > getWidth()-25 && e.getY() <25) {
+        if (pixely) {
+            pixely=false;
+            remove(timetext);
+            timetext = new Text("","20pt Mono");
+            timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(timetext);
+            remove(classText);
+            classText = new Text("","40pt Mono");
+            classText.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(classText);
             remove(gradeText);
-            remove(dayText);
-            remove(colorSwitch);
-            remove(textSwitch);
+            gradeText = new Text(grd,"18pt Mono");
+            gradeText.setPosition(getWidth()/2-7,23);
+            add(gradeText);
         } else {
-            beansnext = beanslist[beanslist.indexOf(beansnext)+1];
+            pixely=true;
+            remove(timetext);
+            timetext = new Text("","30pt VT323");
+            timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(timetext);
+            remove(classText);
+            classText = new Text("","50pt VT323");
+            classText.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(classText);
+            remove(gradeText);
+            gradeText = new Text(grd,"20pt VT323");
+            gradeText.setPosition(getWidth()/2-5,23);
+            add(gradeText);
+        } // see if the button to change grade schedules was clicked
+    } else if (e.getX() > getWidth()/2-15 && e.getX() < getWidth()/2+15 && e.getY() < 30) {
+        if (grd==8) {
+            grd=6;
+        } else if (grd==7) {
+            grd=8;
+        } else if (grd==6) {
+            grd=7;
         }
+        gradeText.setText(grd);
+    }
+    //change the colors of things if the dark mode boolean changed
+    if (darkBool) {
+        background.setColor(Color.black);
+        biggestcirc.setColor(darkOrange);
+        bigcirc.setColor(Color.orange);
+        littlecirc.setColor(Color.black);
+        timetext.setColor(Color.white);
+        classText.setColor(Color.white);
+        colorSwitch.setColor(Color.white);
+        gradeSwitch.setColor(Color.white);
+        gradeText.setColor(Color.black);
+        fontSwitch.setColor(Color.white);
+        backlightLeft.setColor(darkBlue);
+        backlightMiddle.setColor(darkBlue);
+        backlightRight.setColor(darkBlue);
     } else {
-        if (beansnext!="b") {
-            beansnext = beanslist[beanslist.indexOf(beansnext)-1];
-        }
+        background.setColor(Color.white);
+        biggestcirc.setColor(Color.blue);
+        bigcirc.setColor(darkBlue);
+        littlecirc.setColor(Color.white);
+        timetext.setColor(Color.black);
+        classText.setColor(Color.white);
+        gradeSwitch.setColor(Color.black);
+        gradeText.setColor(Color.white);
+        colorSwitch.setColor(Color.black);
+        fontSwitch.setColor(Color.black);
+        backlightLeft.setColor(darkOrange);
+        backlightMiddle.setColor(darkOrange);
+        backlightRight.setColor(darkOrange);
     }
-    if (e.key==funnext) {
-        if (funnext=="n") {
-            $('body').css('background-image', 'url(https://codehs.com/uploads/538eb0887778557c37a188e9f22f9f69)');
-            var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            remove(background);
-            funaudio.play();
-        } else {
-            funnext = funlist[funlist.indexOf(funnext)+1];
-        }
-    } else {
-        if (funnext!="f") {
-            funnext = funlist[funlist.indexOf(funnext)-1];
-        }
-    }
-}
-function clearBell() {
-    skipBell=false;
-}
-function moveDrawer() {
-    mover-=mover/8;
-    if (openDrawer) {
-        drawerBack.move(0,0-mover);
-        gameBack.move(0,0-2*mover);
-        watchBack.move(0,0-2*mover);
-    } else {
-        drawerBack.move(0,mover);
-        gameBack.move(0,2*mover);
-        watchBack.move(0,2*mover);
-    }
-    if (drawerBack.getY()<=0-drawerBack.getHeight() && openDrawer) {
-        stopTimer(moveDrawer);
-        openDrawer=false;
-    } else if (drawerBack.getY()>=0 && openDrawer==false) {
-        stopTimer(moveDrawer);
-        openDrawer=true;
-    }
-    dropDown.setPosition(getWidth()/2,drawerBack.getY()+drawerBack.getHeight());
-}
-function watchTimer() {
-    if (Number(watcher.split(":")[1])+1==60) {
-        watcher = (Number(watcher.split(":")[0])+1)+':0';
-    } else {
-        watcher = (Number(watcher.split(":")[0]))+':'+(Number(watcher.split(":")[1])+1);
-    }
-    watchText.setText(watcher);
-}
-function autoClick() {
-    clicknum+=autonum;
-    clickText.setText(clicknum);
-    clickText.setPosition(gameBack.getX()+gameBack.getWidth()/2-clickText.getWidth()/2,170);
 }
 };
 </script>
+
 <!--Spotify embedding for the top songs-->
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4JAvHpjipBk" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX5Ejj0EkURtP" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUa8ZRTfalHk" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcb6CQIjdqKy" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe src="https://open.spotify.com/embed/playlist/0hPobNHaXb2I3ggItydLL7" width="1352" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<!--Hello fellow coder, I see you have come upon my source code. If you want to add your own spotify playlist here. 
-    Go to https://developer.spotify.com/documentation/widgets/guides/adding-a-spotify-play-button/, and follow their instructions
-    Then, you can insert their code here to add your playlist at the bottom of the page. -->
-<a href="http://bit.ly/classclocklite"><p>Lite Version</p></a>
-<a href="http://bit.ly/classclockold"><p>Old Version</p></a>
-<a href="mailto:2057892@jeffcoschools.us"><p>Support</p></a>
-</body>
-</html>
+<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="1500" height="80" allow="encrypted-media"></iframe>
+</body></html>
