@@ -1,0 +1,313 @@
+<html>
+<head>
+
+<title>Class Clock</title>
+
+<!-- Import googleapi jquery, webfonts, and codehs canvas-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script type="text/javascript" src="https://static.codehs.com/gulp/eadd18cc70971c40c67c7386257edc76d0b5953b/chs-js-lib/chs.js"></script>
+
+
+<style>
+/*Make codehs canvas have no border*/
+canvas {
+    border: 0px solid black;
+}
+/*make the page body black*/
+body {
+    background-color: black;
+}
+</style>
+
+
+<!--Make the favicon a canadian flag because why not-->
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANUAAABqCAMAAAAcAuQRAAAAdVBMVEXVKx7////TGwf11dTSAADVKBrTGAD88/L++vrUJBX22tnPAADrrKnTEADUIhL99vXuurjqpaL3397XNyz55eTaUUzdZF7zzMronJnjhYLxxsTaVFHttLPcXVfZSUbXQD3fcW7lkY/gd3bfbWfifnvVKCXXPDc0aRwoAAAEkElEQVR4nO2c65ajIAyABQGlCmq1XnpT21nf/xFX7WVmrHjp9qzRY/6M0yGRb5CQQKymvSFYR/9LdPxOB9+SlWqlWqlWqpVqparEXCKVmb+DBZ1qb+0XSHVgh+VRHZnGjkujMk9Sk6fxMws2lUtKPeIujOrMSz1+XhaVzWpFZi+JyjzIWlEexs4syFQ2uWuSsYMFjcr8HhYz5XdNnpptDeZDFRTuo9see6oy78HkFsEMqcyMnDb1lXPmT1V+durPtiHJ5jhWKGaSZNvywiM/dEk1WMGFSBYPMQKOqoyRNOHHyPDpD13qB8grhDYwfgJHta28ORUWob+UKbFE9YnczpIK0U4jdJANeFQ72WFD7mZKlbAOGyyZKZVLOmwMjN/hUW06qTYzpTIKtb+ghTFTKidUuwsZOjOlQrnaXbB8mAmAVHYH1cCUBAyV95wxescT+DRhdPJBoQr8yyMYNzq8xQPdvPhdGQkUKpuI8HGdcoUFnj6ahKIzP4ZC5XON5PfrTDWxWHZvkRON+xCpNtb1GAUPR70vkwyN3MOho2odJvc0JKkaiMcGvBNEx6v1a3mebqwwIyI9JXY9P7LaQ5BbIq+MLu6RxS2flPXABXZySgVhGMZYobgcHsqxsKxzHop7t+tMN/Db/QW9eYj4Di3C/GxZAvOytYiBUEXP2SPFoxO0jl6NU7tvl6fKBbrPfBKLZzsWAaFyTm2uTlSuLWnvFK7mnS1a/sJPDhCq9r5TXP7X8/ZOVfFShNueTtxIuyak2rY6BSq9WOXZcezJ1ilHtmCokGjtIRVtz9hNhEoFwaHK1d0fJyIHRLX/GFXzRHxKKmOnCvjGCd81M+RJ48Cvz9wcfzUNT0qld228DBfyanhKqv2HqCJAVIFisR0vMg6AUDlJQbq31IcLJUXiQKA6WuxTTJVQZh0BUJme9VEqyzMBUJV3Lj53a1w0bE/oLfyPxRbNDacpPbuZf8izv1RGTrvHFH/ADVLyegA+8c6Z/udf74//tJmdeD9QL7qOFvuFFa1WJ9/lzP7FZ4is1eb0VCh+e+WilqKmBAAV2vtdx/Zqkb6qfhoCFQroO0+hoMpjERBUyLyMX7nIRV2nBYOqWpDHTS76uvTCo0IoomMml6QvmSJIKhSNWLlY0QkFiAqh61Asdu2xBIkKXYZ1Bl/6DIGicocNFustZgJFpTjheTHUW3gGiUp1xtgU2lmVAI2qsT1IucT1eyJY8t+4pO9NM0hU31WcVAqCi/CSHKQmD8klLDAR30dXvRWdgKgMcRsfQSx2yF29KltwUpxWPwLdzQ/MIuI2bqKnoA4QVUwI0XbXxNZ/xEKe5X3/Yup2ct1pZbueqnY4VEaWedHGaER3cTOFMo1N5GVZ92DBoWqX/FkHNEagU32Rl8OpBVBdRV/MN0eq8LvAbkFUi3wLGp3x+DdQ4VOlMu1vtFJBoDIKPvB1g1lR+dxfHlWZcvUmU/Oj2mhUG/Yaz5yo9JLqHTXYVBGl3fuZs6Ryy1x4/NdbgKfCGl4elS24GP3tFvCp/MJfHtWbslKtVCvVSrVSrVSV/AWPdU0jJ/E1jQAAAABJRU5ErkJggg==">
+
+</head>
+
+
+
+
+<body>
+
+<canvas width="1500px" height="720px" class="codehs-editor-canvas"></canvas>
+
+<pre id="console"></pre>
+
+
+<!--Javascript Code for codehs canvas (makes the majority of the page)-->
+<script>
+WebFont.load({
+    google: {
+      families: ['VT323']
+    }
+  });
+window.onload = function() {
+
+//General Variables
+var grd = 8;
+var pixely = true;
+var darkBool = true;
+var darkBlue = new Color(42, 103, 217);
+var darkRed = new Color(255, 35, 39);
+var darkOrange = new Color(255, 50, 0);
+var today = new Date();
+var day = today.getDay();
+var dayTimer = today.getDay();
+var hourTimer = today.getHours();
+var minuteTimer = today.getMinutes();
+var secondTimer = today.getSeconds();
+//Buttons
+var colorSwitch = new Circle(10);
+colorSwitch.setColor(Color.white);
+colorSwitch.setPosition(14,14);
+var gradeSwitch = new Circle(14);
+gradeSwitch.setColor(Color.white);
+gradeSwitch.setPosition(getWidth()/2,16);
+var gradeText = new Text(grd,"20pt VT323");
+gradeText.setColor(Color.black);
+gradeText.setPosition(getWidth()/2-5,23);
+var fontSwitch = new Circle(10);
+fontSwitch.setColor(Color.white);
+fontSwitch.setPosition(getWidth()-14,14);
+//Shapes
+var background = new Rectangle(getWidth(),getHeight());
+background.setColor(Color.black);
+var biggestcirc = new Circle(160);
+biggestcirc.setColor(darkOrange);
+biggestcirc.setPosition(getWidth()/2,getHeight()/2);
+var bigcirc=new Circle(155);
+bigcirc.setColor(Color.orange);
+bigcirc.setPosition(getWidth()/2,getHeight()/2);
+var littlecirc=new Circle(150);
+littlecirc.setColor(Color.black);
+littlecirc.setPosition(getWidth()/2,getHeight()/2);
+//Text
+var timetext = new Text(hourTimer+":"+minuteTimer+":"+secondTimer,"30pt VT323");
+timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
+timetext.setColor(Color.white);
+var classText = new Text("HOME","50pt VT323");
+classText.setColor(Color.white);
+classText.setPosition(getWidth()/2-((classText.toString().length/2)*7),getHeight()/2+53);
+//Backlight shapes
+var backlightLeft = new Circle(35);
+backlightLeft.setColor(darkBlue);
+backlightLeft.setPosition(getWidth()/2-71,getHeight()/2+35);
+var backlightMiddle = new Rectangle(150,70);
+backlightMiddle.setColor(darkBlue);
+backlightMiddle.setPosition(getWidth()/2-75,getHeight()/2);
+var backlightRight = new Circle(35);
+backlightRight.setColor(darkBlue);
+backlightRight.setPosition(getWidth()/2+71,getHeight()/2+35);
+//Add shapes
+add(background);
+add(biggestcirc);
+add(bigcirc);
+add(littlecirc);
+add(timetext);
+add(backlightLeft);
+add(backlightMiddle);
+add(backlightRight);
+add(classText);
+add(colorSwitch);
+add(gradeSwitch);
+add(gradeText);
+add(fontSwitch);
+//Start a timer to listen for clicks and refresh the clock
+setTimer(start,10);
+mouseClickMethod(click);
+function start() {
+    //refresh clock
+    today = new Date();
+    dayTimer = today.getDay();
+    hourTimer = today.getHours();
+    minuteTimer = today.getMinutes();
+    secondTimer = today.getSeconds();
+    //find class
+    //if weekend
+    if (dayTimer==0||dayTimer==6){
+        classText.setText("HOME");
+    } else if (dayTimer==1) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            //if before or after school
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<25) {
+            classText.setText("HEART");
+        } else if (hourTimer==9 && minuteTimer>=30 ||hourTimer==10 && minuteTimer<55) {
+            classText.setText("2nd");
+        } else if (hourTimer==11||hourTimer==12 && minuteTimer<25) {
+            classText.setText("4th");
+        } else if (hourTimer==12 && minuteTimer>=30 ||hourTimer==13 && minuteTimer<5) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==13 && minuteTimer>=10 ||hourTimer==14 && minuteTimer<25) {
+            classText.setText("6th");
+        } else if (hourTimer==14 && minuteTimer>=40 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("ACCESS");
+        } else {
+            classText.setText("PASSING");
+        }
+    } else if (dayTimer==2||dayTimer==4) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<50) {
+            classText.setText("1st");
+        } else if (hourTimer==9 && minuteTimer>=55 ||hourTimer==10 ||hourTimer==11 && minuteTimer<20) {
+            classText.setText("3rd");
+        } else if (hourTimer==11 && minuteTimer>=25 ||hourTimer==12 && minuteTimer<7 ||hourTimer==12 && minuteTimer>=47 ||hourTimer==13 && minuteTimer<30) {
+            classText.setText("5th");
+        } else if (hourTimer==12 && minuteTimer>=12 ||hourTimer==12 && minuteTimer<42) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==13 && minuteTimer>=35) {
+            classText.setText("7th");
+        } else if (hourTimer==15 && minuteTimer>=5 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("ACCESS");
+        } else {
+            classText.setText("PASSING");
+        }
+    } else if (dayTimer==3) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==14 && minuteTimer>25||hourTimer>14) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<50) {
+            classText.setText("2nd");
+        } else if (hourTimer==9 && minuteTimer>=55 ||hourTimer==10 ||hourTimer==11 && minuteTimer<20) {
+            classText.setText("4tb");
+        } else if (hourTimer==11 && minuteTimer>=25 ||hourTimer==12 && minuteTimer<7 ||hourTimer==12 && hourTimer>=47 ||hourTimer==13 && minuteTimer<30) {
+            classText.setText("6th");
+        } else if (hourTimer==13 && minuteTimer>=35 ||hourTimer==14 && minuteTimer<25) {
+            classText.setText("ACCESS");
+        } else if (hourTimer==14 && minuteTimer>=25 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("HOME/ACHV");
+        } else {
+            classText.setText("PASSING");
+        }
+    } else if (dayTimer==5) {
+        if (hourTimer==8 && minuteTimer<13||hourTimer<8||hourTimer==15 && minuteTimer>25||hourTimer>15) {
+            classText.setText("HOME");
+        } else if (hourTimer==8 && minuteTimer>=25 ||hourTimer==9 && minuteTimer<15) {
+            classText.setText("1st");
+        } else if (hourTimer==9 && minuteTimer>=20 ||hourTimer==10 && minuteTimer<10) {
+            classText.setText("2nd");
+        } else if (hourTimer==10 && minuteTimer>=15 ||hourTimer==11 && minuteTimer<5) {
+            classText.setText("3rd");
+        } else if (hourTimer==11 && minuteTimer>=10) {
+            classText.setText("4th");
+        } else if (hourTimer==12 && minuteTimer>=5 ||hourTimer==12 && minuteTimer<40) {
+            classText.setText("LUNCH");
+        } else if (hourTimer==12 && minuteTimer>=45 ||hourTimer==13 && minuteTimer<35) {
+            classText.setText("5th");
+        } else if (hourTimer==13 && minuteTimer>=40 ||hourTimer==14 && minuteTimer<30) {
+            classText.setText("6th");
+        } else if (hourTimer==14 && minuteTimer>=35 ||hourTimer==15 && minuteTimer<25) {
+            classText.setText("7th");
+        } else {
+            classText.setText("PASSING");
+        }
+    }
+    //Timer Cosmetics
+    if (hourTimer>12) {
+        hourTimer=hourTimer-12;
+    }
+    if (hourTimer.toString().length==1){
+        hourTimer="0"+hourTimer;
+    }
+    if (minuteTimer.toString().length==1){
+        minuteTimer="0"+minuteTimer;
+    }
+    if (secondTimer.toString().length==1){
+        secondTimer="0"+secondTimer;
+    }
+    timetext.setText(hourTimer+":"+minuteTimer+":"+secondTimer);
+    if (pixely) {
+        classText.setPosition(getWidth()/2-((classText.toString().length/2)*7),getHeight()/2+53);
+    } else {
+        classText.setPosition(getWidth()/2-((classText.toString().length/2)*8.5),getHeight()/2+53);
+    }
+}
+
+function click(e) {
+    //this function listens for clicks and sees if a button was clicked on
+    //see if the button for dark mode was clicked
+    if (e.getX() < 25 && e.getY() < 25) {
+        if (darkBool) {
+            darkBool=false;
+        } else {
+            darkBool=true;
+        } //see if the button for a font change was clicked
+    } else if (e.getX() > getWidth()-25 && e.getY() <25) {
+        if (pixely) {
+            pixely=false;
+            remove(timetext);
+            timetext = new Text("","20pt Mono");
+            timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(timetext);
+            remove(classText);
+            classText = new Text("","40pt Mono");
+            classText.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(classText);
+            remove(gradeText);
+            gradeText = new Text(grd,"18pt Mono");
+            gradeText.setPosition(getWidth()/2-7,23);
+            add(gradeText);
+        } else {
+            pixely=true;
+            remove(timetext);
+            timetext = new Text("","30pt VT323");
+            timetext.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(timetext);
+            remove(classText);
+            classText = new Text("","50pt VT323");
+            classText.setPosition(getWidth()/2-64,getHeight()/2-50);
+            add(classText);
+            remove(gradeText);
+            gradeText = new Text(grd,"20pt VT323");
+            gradeText.setPosition(getWidth()/2-5,23);
+            add(gradeText);
+        } // see if the button to change grade schedules was clicked
+    } else if (e.getX() > getWidth()/2-15 && e.getX() < getWidth()/2+15 && e.getY() < 30) {
+        if (grd==8) {
+            grd=6;
+        } else if (grd==7) {
+            grd=8;
+        } else if (grd==6) {
+            grd=7;
+        }
+        gradeText.setText(grd);
+    }
+    //change the colors of things if the dark mode boolean changed
+    if (darkBool) {
+        background.setColor(Color.black);
+        biggestcirc.setColor(darkOrange);
+        bigcirc.setColor(Color.orange);
+        littlecirc.setColor(Color.black);
+        timetext.setColor(Color.white);
+        classText.setColor(Color.white);
+        colorSwitch.setColor(Color.white);
+        gradeSwitch.setColor(Color.white);
+        gradeText.setColor(Color.black);
+        fontSwitch.setColor(Color.white);
+        backlightLeft.setColor(darkBlue);
+        backlightMiddle.setColor(darkBlue);
+        backlightRight.setColor(darkBlue);
+    } else {
+        background.setColor(Color.white);
+        biggestcirc.setColor(Color.blue);
+        bigcirc.setColor(darkBlue);
+        littlecirc.setColor(Color.white);
+        timetext.setColor(Color.black);
+        classText.setColor(Color.white);
+        gradeSwitch.setColor(Color.black);
+        gradeText.setColor(Color.white);
+        colorSwitch.setColor(Color.black);
+        fontSwitch.setColor(Color.black);
+        backlightLeft.setColor(darkOrange);
+        backlightMiddle.setColor(darkOrange);
+        backlightRight.setColor(darkOrange);
+    }
+}
+};
+</script>
+
+<!--Spotify embedding for the top songs-->
+<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="1500" height="80" allow="encrypted-media"></iframe>
+</body></html>
